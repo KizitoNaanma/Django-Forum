@@ -1,0 +1,27 @@
+{% extends "my_forums/forum_base.html" %}
+
+{% block pregroup %}
+
+
+<h1>{{forum.topic}}</h1>
+<h2> Member Count: {{forum.members.count}}</h2>
+
+
+{% endblock %}
+
+
+{% block group_content %}
+
+<div class="col-md-8">
+	{% if forum.posts.count == 0 %}
+	<h2>No posts in this group yet!</h2>
+
+	{% else %}
+
+		{% for post in forum.posts.all %}
+			{% include "posts/_post.html" %}
+		{% endfor %}
+
+	{% endif %}
+</div>
+{% endblock %}
