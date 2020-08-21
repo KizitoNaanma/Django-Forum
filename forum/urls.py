@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from my_forums.views import *
-from posts.views import *
+from forum_app.views import *
 from .import views
 
 urlpatterns = [
@@ -24,9 +23,8 @@ urlpatterns = [
     path('',views.HomePage.as_view(),name='home'),
     path('accounts/', include('accounts.urls',namespace='accounts')),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('forum_app/', include('forum_app.urls'),name='forum_app'),
     path('test/',views.TestPage.as_view(),name='test'),
     path('thanks/',views.ThanksPage.as_view(),name='thanks'),
-    path("posts/", include("posts.urls", namespace="posts")),
-    path("groups/",include("my_forums.urls", namespace="forums")),
 
 ]

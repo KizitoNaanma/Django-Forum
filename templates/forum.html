@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<form action="{% url 'forum_app:addInForum' %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="submit">
+
+{% endblock %}

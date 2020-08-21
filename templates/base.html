@@ -6,7 +6,7 @@
     <title>Forum</title>
     <!-- Latest compiled and minified CSS -->
 
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -17,7 +17,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static '/socialsite/css/master.css'%}">
 
 
   </head>
@@ -32,12 +31,10 @@
 
     					<ul class="nav navbar-nav navbar-right">
     						{% if user.is_authenticated %}
-                      <li><a href="{% url 'posts:create' %}" class="btn btn-simple">Post</a></li>
-                      <li><a href="{% url 'my_forums:all' %}" class="btn btn-simple">Forums</a></li>
-                      <li><a href="{% url 'my_forums:create' %}" class="btn btn-simple">Create Forum</a></li>
+                      <li><a href="{% url 'forum_app:addInForum' %}" class="btn btn-simple">Create Forum</a></li>
                       <li><a href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a></li>
     						{% else %}
-    						      <li><a href="{% url 'my_forums:all' %}"class="btn btn-simple">Forums</a></li>
+    						      <li><a href="{% url 'forum_app:home' %}"class="btn btn-simple">Forums</a></li>
     						      <li><a href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a></li>
     						      <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a></li>
     						{% endif %}
@@ -61,5 +58,4 @@
 
 
   </body>
-  <script src="{% static 'socialsite/js/master.js'%}" type="text/javascript" ></script>
 </html>
